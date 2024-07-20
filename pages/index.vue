@@ -1,12 +1,12 @@
 <template>
-  <div class="wrapper">
-    <div class="index-box">
-      <div class="card-column">
+  <div class="home-wrapper">
+    <div class="index-box index-box-full">
+      <div class="card-column main-column">
         <div class="card main-card">
           <Damir />
         </div>
       </div>
-      <div class="card-column">
+      <div class="card-column mtn-column">
         <div
           class="card photos-card"
           :style="{ backgroundImage: `url(${fotoJuncalChico})` }"
@@ -20,15 +20,59 @@
           <p class="card-title">Videos de expediciones</p>
         </div>
       </div>
-      <div class="card-column">
+      <div class="card-column blog-column">
         <div
           class="card blog-card"
           :style="{ backgroundImage: `url(${fotoPenitente})` }"
         >
-          <p class="card-title" style="font-size: 3rem">Blog</p>
+          <p class="card-title">Blog</p>
         </div>
       </div>
       <div class="card-column small-column">
+        <div class="card social-card instagram-card" @click="goToInstagram">
+          <Icon name="uil:instagram" style="color: white" />
+        </div>
+        <div class="card social-card youtube-card" @click="goToYouTube">
+          <Icon name="uil:youtube" style="color: white" />
+        </div>
+        <div class="card social-card github-card" @click="goToGitHub">
+          <Icon name="uil:github" style="color: white" />
+        </div>
+        <div class="card social-card linkedin-card" @click="goToLinkedIn">
+          <Icon name="uil:linkedin" style="color: white" />
+        </div>
+      </div>
+    </div>
+    <div class="index-box index-box-mobile">
+      <div class="card-row main-row">
+        <div class="card-column main-column">
+          <div class="card main-card">
+            <Damir />
+          </div>
+        </div>
+        <div class="card-column mtn-column">
+          <div
+            class="card photos-card"
+            :style="{ backgroundImage: `url(${fotoJuncalChico})` }"
+          >
+            <p class="card-title">Fotografía de montaña</p>
+          </div>
+          <div
+            class="card videos-card"
+            :style="{ backgroundImage: `url(${fotoSeren})` }"
+          >
+            <p class="card-title">Videos de expediciones</p>
+          </div>
+          <div
+            class="card blog-card"
+            :style="{ backgroundImage: `url(${fotoPenitente})` }"
+          >
+            <p class="card-title">Blog</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-row small-column">
         <div class="card social-card instagram-card" @click="goToInstagram">
           <Icon name="uil:instagram" style="color: white" />
         </div>
@@ -71,7 +115,7 @@ const goToLinkedIn = () => {
 };
 </script>
 <style scoped lang="scss">
-.wrapper {
+.home-wrapper {
   display: flex;
   align-items: center; /* Center vertically */
   justify-content: center; /* Center horizontally */
@@ -212,6 +256,85 @@ const goToLinkedIn = () => {
         color: rgb(255, 255, 255);
         text-align: center;
         z-index: 2;
+      }
+    }
+  }
+}
+.index-box-mobile {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .index-box-full {
+    display: none !important;
+  }
+  .index-box-mobile {
+    display: flex !important;
+    flex-direction: column;
+    .card-row {
+      display: flex;
+      flex-direction: row;
+      &.small-column {
+        height: 80px;
+        border-top: solid 2px #1f1f1f;
+        .social-card {
+          flex: 1;
+          padding-top: 15px;
+          font-size: 3rem;
+          text-align: center;
+          cursor: pointer;
+          transition: all 0.3s;
+          opacity: 0.9;
+          &:hover {
+            transform: scale(1.1);
+            border: solid 3px #1f1f1f;
+            border-radius: 10px;
+            opacity: 1;
+            z-index: 1000;
+          }
+          &.instagram-card {
+            background: #f09433;
+            background: -moz-linear-gradient(
+              45deg,
+              #f09433 0%,
+              #e6683c 25%,
+              #dc2743 50%,
+              #cc2366 75%,
+              #bc1888 100%
+            );
+            background: -webkit-linear-gradient(
+              45deg,
+              #f09433 0%,
+              #e6683c 25%,
+              #dc2743 50%,
+              #cc2366 75%,
+              #bc1888 100%
+            );
+            background: linear-gradient(
+              45deg,
+              #f09433 0%,
+              #e6683c 25%,
+              #dc2743 50%,
+              #cc2366 75%,
+              #bc1888 100%
+            );
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+          }
+          &.youtube-card {
+            background-color: #ff0000;
+          }
+          &.github-card {
+            background-color: rgb(30, 30, 30);
+          }
+          &.linkedin-card {
+            background-color: #0e76a8;
+          }
+        }
+      }
+    }
+    .card-column {
+      &.main-column {
+        min-width: 200px;
       }
     }
   }
