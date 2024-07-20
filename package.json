@@ -10,7 +10,12 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/icon": "^1.2.0",
+    "@nuxtjs/google-fonts": "^3.2.0",
     "nuxt": "^3.12.4",
     "vue": "latest"
+  },
+  "devDependencies": {
+    "sass": "^1.77.8"
   }
 }
