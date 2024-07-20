@@ -9,6 +9,7 @@
   bottom: 0;
   right: 0;
   height: 70px;
+  width: 36px;
   z-index: 1000; /* Ensure it's above other elements */
   img {
     width: 100%;
