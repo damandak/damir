@@ -20,9 +20,9 @@
     }
   }
 }
-@media screen and (max-width: 900px) {
-  .dorly {
-    display: none;
-  }
-}
+// @media screen and (max-width: 900px) {
+//   .dorly {
+//     display: none;
+//   }
+// }
 </style>
